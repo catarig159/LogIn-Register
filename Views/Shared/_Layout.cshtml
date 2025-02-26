@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UsersApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/UsersApp.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            padding-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 15px;
+            left: 260px;
+            font-size: 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: black;
+        }
+
+        .collapsed {
+            margin-left: 0;
+        }
+
+        .sidebar.collapsed {
+            width: 0;
+            overflow: hidden;
+        }
+
+        .toggle-btn.collapsed {
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar" id="sidebar">
+        <a href="#" class="navbar-brand">LogoTest</a>
+        <a asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
+        <a asp-area="" asp-controller="Home" asp-action="Privacy">Settings</a>
+        <partial name="_LoginPartial" />
+    </nav>
+
+    <button class="toggle-btn" id="toggle-btn">☰</button>
+
+    <div class="content" id="content">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("toggle-btn").addEventListener("click", function () {
+            var sidebar = document.getElementById("sidebar");
+            var content = document.getElementById("content");
+            var button = document.getElementById("toggle-btn");
+
+            sidebar.classList.toggle("collapsed");
+            content.classList.toggle("collapsed");
+            button.classList.toggle("collapsed");
+        });
+    </script>
+</body>
+</html>
