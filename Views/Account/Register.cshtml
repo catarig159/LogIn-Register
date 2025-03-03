@@ -5,19 +5,22 @@
     ViewData["Title"] = "Register";
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <h2 class="text-center mb-4">Register</h2>
-            <form asp-action="Register" method="post">
+            <form asp-action="Register" method="post" novalidate>
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label asp-for="LastName" class="form-label">Last Name</label>
                         <input asp-for="LastName" class="form-control" placeholder="Enter last name" />
+                        <span class="text-danger" asp-validation-for="LastName"></span>
                     </div>
                     <div class="col-md-4">
                         <label asp-for="FirstName" class="form-label">First Name</label>
                         <input asp-for="FirstName" class="form-control" placeholder="Enter first name" />
+                        <span class="text-danger" asp-validation-for="FirstName"></span>
                     </div>
                     <div class="col-md-4">
                         <label asp-for="MiddleName" class="form-label">Middle Name</label>
@@ -29,18 +32,21 @@
                     <div class="col-md-4">
                         <label asp-for="Gender" class="form-label">Gender</label>
                         <select asp-for="Gender" class="form-control">
-                            <option>Select Gender</option>
+                            <option value="">Select Gender</option>
                             <option>Male</option>
                             <option>Female</option>
                         </select>
+                        <span class="text-danger" asp-validation-for="Gender"></span>
                     </div>
                     <div class="col-md-4">
                         <label asp-for="Birthdate" class="form-label">Birthdate</label>
                         <input asp-for="Birthdate" type="date" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Birthdate"></span>
                     </div>
                     <div class="col-md-4">
                         <label asp-for="Address" class="form-label">Address</label>
                         <input asp-for="Address" class="form-control" placeholder="Enter address" />
+                        <span class="text-danger" asp-validation-for="Address"></span>
                     </div>
                 </div>
 
@@ -48,14 +54,17 @@
                     <div class="col-md-4">
                         <label asp-for="Email" class="form-label">Email</label>
                         <input asp-for="Email" type="email" class="form-control" placeholder="Enter email" />
+                        <span class="text-danger" asp-validation-for="Email"></span>
                     </div>
                     <div class="col-md-4">
                         <label asp-for="ContactNo" class="form-label">Contact No</label>
                         <input asp-for="ContactNo" type="text" class="form-control" placeholder="Enter contact number" />
+                        <span class="text-danger" asp-validation-for="ContactNo"></span>
                     </div>
                     <div class="col-md-4">
                         <label asp-for="Username" class="form-label">Username</label>
                         <input asp-for="Username" class="form-control" placeholder="Enter username" />
+                        <span class="text-danger" asp-validation-for="Username"></span>
                     </div>
                 </div>
 
@@ -63,10 +72,12 @@
                     <div class="col-md-6">
                         <label asp-for="Password" class="form-label">Password</label>
                         <input asp-for="Password" type="password" class="form-control" placeholder="Enter password" />
+                        <span class="text-danger" asp-validation-for="Password"></span>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
                         <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm password" />
+                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
                     </div>
                 </div>
 
@@ -78,7 +89,6 @@
         </div>
     </div>
 </div>
-
 
 @section Scripts {
     @{
